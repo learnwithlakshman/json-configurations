@@ -1,0 +1,6 @@
+ rootPath: java.home
+ ramSize:  4
+ cpuCores: 4 
+ ipAddress: 192.123.12.3
+ username: admin@super
+ password: super@admin123!

@@ -1,0 +1,22 @@
+servers:
+  - ip: 193.23.34.45
+    password: admin@123!
+    username: amdin@us.com
+    clients: 
+      - Client1
+        Client2 
+        Client6
+  - ip: 193.23.34.45
+    password: admin@123!
+    username: amdin@uk.com
+    clients: 
+      - Client3
+        Client4 
+  - ip: 193.23.34.65
+    password: admin@123!
+    username: amdin@us.com
+    clients: 
+      - Client4
+        Client5 
+        
+ 
