@@ -46,7 +46,13 @@
 			<artifactId>snakeyaml</artifactId>
 			<version>1.28</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.16</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
