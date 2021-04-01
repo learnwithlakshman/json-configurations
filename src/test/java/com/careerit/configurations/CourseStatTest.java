@@ -1,13 +1,18 @@
 package com.careerit.configurations;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,16 +26,17 @@ public class CourseStatTest {
 	
 	@BeforeAll
 	public static void init() throws IOException {
-		List<Student> studentList = Files.readAllLines(Paths.get("src/test/resources/coursedata.csv")).stream().skip(1)
+		final String fileName = "src/test/resources/coursedata.csv";
+	   	List<Student> studentList = Files.readAllLines(Paths.get(fileName)).stream().skip(1)
 				.map(line -> {
 					String[] arr = line.split(",");
 					int c = 0;
-					return Student.builder().name(arr[c++]).batch(arr[c++]).completed(arr[c++]).placed(arr[c++])
+				    return Student.builder().name(arr[c++]).batch(arr[c++]).completed(arr[c++]).placed(arr[c++])
 							.qualification(arr[c++]).score(Float.parseFloat(arr[c++])).build();
+				
 				}).collect(Collectors.toList());
 			Connection con = null;
 			PreparedStatement pst = null;
-			
 			try {
 				con = util.getConnection();
 				pst = con.prepareStatement("insert into student(name,batch,completed,placed,qualification,score) values(?,?,?,?,?,?)");
@@ -58,6 +64,6 @@ public class CourseStatTest {
 	
 	@Test
 	void doesNothing() {
-		
+		Stream.of("Tanvi","Haadya","Dhatri","Swathi","Anusha").skip(1).forEach(System.out::println);
 	}
 }
