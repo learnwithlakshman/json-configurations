@@ -1,0 +1,23 @@
+Core Java - Monday
+Logging frameworks
+
+MongoDB - 3 Days
+MongoAtlas
+
+HTML, CSS, BootStrap, JavaScript ? - UI
+
+Angular
+
+Spring Framework ( Spring Boot)
+Hibernate
+
+
+
+Junit ( Mocking )
+Jenkins
+Sonar
+Jacoco
+
+How to deploy application AWS or Heroku?
+
+MicroServices

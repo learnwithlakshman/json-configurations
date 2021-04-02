@@ -26,7 +26,7 @@ public class CourseStatTest {
 	
 	@BeforeAll
 	public static void init() throws IOException {
-		final String fileName = "src/test/resources/coursedata.csv";
+		final String fileName = "src/test/resources/course_seed_data.csv";
 	   	List<Student> studentList = Files.readAllLines(Paths.get(fileName)).stream().skip(1)
 				.map(line -> {
 					String[] arr = line.split(",");

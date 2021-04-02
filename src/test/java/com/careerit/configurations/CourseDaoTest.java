@@ -34,7 +34,9 @@ public class CourseDaoTest {
 
       @BeforeEach
       void init() {
+
           courseStatDao = new CourseDaoImpl();
+          courseStatDao.removeAll();
           courseStatDao.insertStudent(studentList);
       }
       @AfterEach
@@ -60,6 +62,12 @@ public class CourseDaoTest {
           int expected = 2;
           assertEquals(expected, actual);
 
+      }
+      @Test
+      void selectStudentCountByTrainerTest(){
+          int actual = courseStatDao.selectStudentCountByTrainer("BCJ1");
+          int expected = 0;
+          assertEquals(expected, actual);
       }
 
 

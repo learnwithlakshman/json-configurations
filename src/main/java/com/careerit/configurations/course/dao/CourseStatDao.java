@@ -9,7 +9,9 @@ public interface CourseStatDao {
         int insertStudent(List<Student> list);
         List<Student> selectStudentByBatch(String batchName);
         List<Student> selectByPlacementStatus(String placedStatus);
+        int selectStudentCountByTrainer(String trainerName);
         int selectCountByBatch(String batchName);
+
         int removeAll();
 }
 

@@ -13,7 +13,7 @@ public class CourseDaoImpl implements CourseStatDao{
     private static final String SELECT_STUDENT_BY_BATCH = "select name,batch,completed,placed,qualification,score from student where batch= ?";
     private static final String SELECT_STUDENT_COUNT_BY_BATCH = "select count(*) as count from student where batch = ?";
     private static final String SELECT_STUDENT_BY_PLACEMENT_STATUS = "select name,batch,completed,placed,qualification,score from student where placed=?";
-
+    private static final String COUNT_STUDENT_BY_TRAINER = "CALL count_of_students(?,?)";
     private ConnectionUtil conUtil = ConnectionUtil.obj;
 
     @Override
@@ -86,6 +86,24 @@ public class CourseDaoImpl implements CourseStatDao{
             conUtil.close(rs,pst, con);
         }
         return studentList;
+    }
+
+    @Override
+    public int selectStudentCountByTrainer(String trainerName) {
+        Connection con = null;
+        CallableStatement cst = null;
+        int count = 0;
+        try{
+            con = conUtil.getConnection();
+            cst = con.prepareCall(COUNT_STUDENT_BY_TRAINER);
+            cst.setString(1,trainerName);
+            cst.registerOutParameter(2,Types.INTEGER);
+            cst.execute();
+            count = cst.getInt(2);
+        }catch (SQLException e){
+            System.out.println("While getting student count :"+e);
+        }
+        return count;
     }
 
     @Override
