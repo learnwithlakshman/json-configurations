@@ -65,6 +65,12 @@
 			<artifactId>poi</artifactId>
 			<version>3.9</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.9.2</version>
+		</dependency>
 
 	</dependencies>
 
